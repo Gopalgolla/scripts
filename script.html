@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: Arial,sans-serif;
+        margin: 20px;
+    }
+    h2{
+        color: rgb(17, 17, 14);
+    }
+    form{
+        border: 2px sol blue;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background-color: beige;
+    }
+    label
+    {
+        display: block;
+        margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    input[type="text"]
+        {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px rgb(73, 45, 33);
+            border-radius: 4px;
+        }
+        input[type="submit"]{
+            background-color: rgb(40, 82, 47);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(39, 170, 67);}
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th, td{
+                padding: 10px;
+                text-align: left;
+            }
+            th{
+                background-color: darkgoldenrod;
+                color: white;
+
+            }
+            tbody tr:nth-child(odd){
+                background-color: rgb(83, 83, 94);
+            }
+            tbody tr:nth-child(even){
+                background-color: rgb(217, 217, 226);
+            }
+        
+</style>
+<body>
+    <h2>Timesheet</h2>
+    <form id="data form">  
+    <label for="employee"> employee</label>
+    <input type="text" id="employee" name="employee">
+
+    <label for="date"> date</label>
+    <input type="date" id="date" name="date">
+    
+    <label for="assignedhours">assignedhours</label>
+    <input type="number" id="assignedhours" name="assignedhours">
+    
+    <label for="hours"> hours</label>
+    <input type="number" id="hours" name="hours">
+    
+    <label for="description">description</label>
+    <input type="text" id="description" name="description">
+
+    <button type="submit">submit</button>
+    
+</form>
+<h2>Dashboard</h2>
+<Table id="dataTable">
+    <thead>
+    <tr>
+        <th>Employee</th>
+        <th>date</th>     
+        <th>Assigned Hours</th>
+        <th>Hours</th>
+        <th>Description</th>
+    </tr>
+</thead>
+<tbody>
+
+</tbody>
+    <script>
+        document.getElementById('dataform').addEventListener('submit' , function(event){
+            event.preventDefault();
+
+            var employee = document.getElementById('employee').value;
+
+            var date = document.getElementById('date').value;
+
+            var assignedhours = document.getElementById('assignedhours').value;
+
+            var hours = document.getElementById('hours').value;
+
+            var description = document.getElementById('description').value;
+
+
+            if(employee === '' || Date<=0 || assignedhours === '' || hours === '' || description === ''){
+                
+            }
+            var table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+
+            var employee1 = newRow.insertCell(0);
+            var date2 = newRow.insertCell(1);
+            var assignedhours3 = newRow.insertCell(2);
+            var hours4 = newRow.insertCell(3);
+            var description5 = newRow.insertCell(4);
+
+            employee1.textContent = employee;
+            date2.textContent = date;
+            assinedhours3.textContent = assignedhours;
+            hours4.textContent = hours;
+            description5.textContent = description;
+            
+
+            document.getElementById('dataform').reset();
+        })
+    </script>
+</body>
+</html>
